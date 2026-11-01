@@ -37,10 +37,8 @@ Every semester, hundreds of valuable student belongings (laptops, calculators, s
 > 💡 **Built specifically for seamless portfolio reviews:**  
 > This project contains an embedded **Hybrid Client Engine (`js/config.js`)** that enables the entire application to run **100% interactively on Netlify without needing an active backend server or MongoDB Atlas cluster!**
 
-### Deploy to Netlify in 30 Seconds:
-1. Log in to your free [Netlify Account](https://app.netlify.com/).
-2. Go to **Sites** and drag & drop the `project1` folder into the browser window.
-3. **Done!** Netlify will generate your permanent live portfolio link (e.g., `https://unifind-campus.netlify.app`).
+### Deploy to Netlify 
+https://loquacious-gnome-bea6af.netlify.app
 
 ### Recruiter One-Click Auto-Fill:
 The login page features a special **"Auto Fill"** badge for reviewers:
