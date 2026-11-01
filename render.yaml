@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: unifind-campus-system
+    env: node
+    plan: free
+    buildCommand: cd project3 && npm install
+    startCommand: cd project3 && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false # Provide your free MongoDB Atlas connection string in Render Dashboard
+      - key: CLIENT_URL
+        value: "*"

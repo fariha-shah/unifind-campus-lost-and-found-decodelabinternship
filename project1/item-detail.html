@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item Details | UniFind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <nav class="nav-container" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon-wrap"><i data-lucide="search-check"></i></span>
+          <span class="logo-text">Uni<strong>Find</strong></span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html#browse" class="nav-link">Browse Items</a></li>
+          <li>
+            <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+          </li>
+          <li><a href="report.html" class="nav-link">Report Item</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost"
+            ><i data-lucide="log-in"></i> Login</a
+          >
+          <a href="register.html" class="btn btn-primary"
+            ><i data-lucide="user-plus"></i> Register</a
+          >
+        </div>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul role="list">
+          <li><a href="index.html#browse" class="nav-link">Browse Items</a></li>
+          <li><a href="report.html" class="nav-link">Report Item</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="register.html" class="nav-link">Register</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- Breadcrumb -->
+      <div class="breadcrumb-bar">
+        <div class="container">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb" role="list">
+              <li><a href="index.html">Home</a></li>
+              <li aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+              <li><a href="index.html#browse">Browse Items</a></li>
+              <li aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+              <li aria-current="page" id="breadcrumb-title">Item Details</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <div class="detail-page container" id="item-detail-content">
+        <!-- Filled by JS -->
+        <div class="detail-loading">
+          <i data-lucide="loader-2" class="spin-icon"></i>
+          <p>Loading item details...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Contact Modal -->
+    <div
+      class="modal-overlay"
+      id="contact-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      hidden
+    >
+      <div class="modal-box">
+        <button class="modal-close" id="close-modal" aria-label="Close dialog">
+          <i data-lucide="x"></i>
+        </button>
+        <div class="modal-header">
+          <div class="modal-icon"><i data-lucide="message-circle"></i></div>
+          <h2 id="modal-title">Contact the Reporter</h2>
+          <p>
+            Send a message about this item. Your university email will be
+            shared.
+          </p>
+        </div>
+        <form class="modal-form" id="contact-form" novalidate>
+          <div class="form-group" id="fg-msg-name">
+            <label for="msg-name" class="form-label"
+              >Your Name <abbr title="required">*</abbr></label
+            >
+            <div class="input-wrap">
+              <span class="input-icon"><i data-lucide="user"></i></span>
+              <input
+                type="text"
+                id="msg-name"
+                class="form-input"
+                placeholder="Ahmed Khan"
+                required
+                aria-describedby="msg-name-error"
+              />
+            </div>
+            <span class="field-error" id="msg-name-error" role="alert"></span>
+          </div>
+          <div class="form-group" id="fg-msg-email">
+            <label for="msg-email" class="form-label"
+              >Your Email <abbr title="required">*</abbr></label
+            >
+            <div class="input-wrap">
+              <span class="input-icon"><i data-lucide="mail"></i></span>
+              <input
+                type="email"
+                id="msg-email"
+                class="form-input"
+                placeholder="you@university.edu"
+                required
+                aria-describedby="msg-email-error"
+              />
+            </div>
+            <span class="field-error" id="msg-email-error" role="alert"></span>
+          </div>
+          <div class="form-group" id="fg-msg-text">
+            <label for="msg-text" class="form-label"
+              >Message <abbr title="required">*</abbr></label
+            >
+            <textarea
+              id="msg-text"
+              class="form-input form-textarea"
+              placeholder="Hi, I think this might be my item. Can we connect?"
+              required
+              rows="4"
+              aria-describedby="msg-text-error"
+            ></textarea>
+            <span class="field-error" id="msg-text-error" role="alert"></span>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary btn-full"
+            id="send-msg-btn"
+          >
+            <i data-lucide="send"></i><span>Send Message</span>
+          </button>
+        </form>
+        <div class="modal-success" id="modal-success" hidden>
+          <div class="success-icon"><i data-lucide="check-circle"></i></div>
+          <h3>Message Sent!</h3>
+          <p>
+            The reporter will be notified. They'll reply to your university
+            email.
+          </p>
+          <button class="btn btn-outline" id="close-success">Close</button>
+        </div>
+
+        <!-- Chat View -->
+        <div class="chat-view" id="chat-view" hidden>
+          <div class="chat-messages" id="chat-messages">
+          
+          </div>
+          <div class="chat-input-row">
+            <input
+              type="text"
+              id="chat-input"
+              class="form-input"
+              placeholder="Type a message..."
+              style="padding: 10px 14px"
+            />
+            <button class="btn btn-primary" id="chat-send-btn">
+              <i data-lucide="send"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Claim Modal -->
+<div class="modal-overlay" id="claim-modal" role="dialog" aria-modal="true" aria-labelledby="claim-modal-title" hidden>
+  <div class="modal-box">
+    <button class="modal-close" id="close-claim-modal" aria-label="Close dialog">
+      <i data-lucide="x"></i>
+    </button>
+    <div class="modal-header">
+      <div class="modal-icon"><i data-lucide="hand-helping"></i></div>
+      <h2 id="claim-modal-title">Claim or Report Found</h2>
+<p>Is this your item, or did you find it? Let the owner know!</p>
+    </div>
+    <form class="modal-form" id="claim-form" novalidate>
+      <div class="form-group">
+        <label class="form-label">Your Name <abbr title="required">*</abbr></label>
+        <div class="input-wrap">
+          <span class="input-icon"><i data-lucide="user"></i></span>
+          <input type="text" id="claim-name" class="form-input" placeholder="Ahmed Khan" required />
+        </div>
+        <span class="field-error" id="claim-name-error" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Email <abbr title="required">*</abbr></label>
+        <div class="input-wrap">
+          <span class="input-icon"><i data-lucide="mail"></i></span>
+          <input type="email" id="claim-email" class="form-input" placeholder="you@university.edu" required />
+        </div>
+        <span class="field-error" id="claim-email-error" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Why is this your item? <abbr title="required">*</abbr></label>
+        <textarea id="claim-message" class="form-input form-textarea" placeholder="Describe proof of ownership — serial number, what's inside, unique markings..." required rows="4"></textarea>
+        <span class="field-error" id="claim-message-error" role="alert"></span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full" id="claim-submit-btn">
+        <i data-lucide="hand-helping"></i><span>Submit Claim</span>
+      </button>
+    </form>
+    <div class="claim-success" id="claim-success" hidden>
+      <div class="success-icon"><i data-lucide="check-circle"></i></div>
+      <h3>Claim Submitted!</h3>
+      <p>The item owner will review your
+    <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-bottom" style="padding-top: 0; border-top: none">
+          <p>&copy; 2026 UniFind. Built by DecodeLabs Interns.</p>
+          <p><a href="index.html">Back to Home</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/item-detail.js"></script>
+  </body>
+</html>

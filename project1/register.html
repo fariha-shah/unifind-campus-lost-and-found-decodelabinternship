@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create your UniFind account – Campus Lost & Found System"
+    />
+    <title>Register | UniFind</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+      defer
+    ></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+      <nav class="nav-container" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo" aria-label="UniFind Home">
+          <span class="logo-icon-wrap"><i data-lucide="search-check"></i></span>
+          <span class="logo-text">Uni<strong>Find</strong></span>
+        </a>
+        <div class="nav-actions" style="margin-left: auto">
+          <a href="login.html" class="btn btn-ghost">
+            <i data-lucide="log-in"></i> Sign In
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <!-- Left decorative panel -->
+      <div class="auth-panel" aria-hidden="true">
+        <div class="auth-panel-shapes">
+          <div class="ap-shape ap-shape-1"></div>
+          <div class="ap-shape ap-shape-2"></div>
+          <div class="ap-shape ap-shape-3"></div>
+        </div>
+        <div class="auth-panel-content">
+          <div class="ap-logo-big">
+            <i data-lucide="user-plus"></i>
+          </div>
+          <h2>Join <span>UniFind</span> today</h2>
+          <p>
+            Become part of your university's trusted lost & found community in
+            under 2 minutes.
+          </p>
+
+          <ul class="ap-features" role="list">
+            <li>
+              <span class="ap-feat-icon"><i data-lucide="search"></i></span>
+              <span>Search & filter campus listings</span>
+            </li>
+            <li>
+              <span class="ap-feat-icon"
+                ><i data-lucide="file-plus-2"></i
+              ></span>
+              <span>Post lost or found items instantly</span>
+            </li>
+            <li>
+              <span class="ap-feat-icon"
+                ><i data-lucide="message-circle"></i
+              ></span>
+              <span>Chat securely with other students</span>
+            </li>
+            <li>
+              <span class="ap-feat-icon"><i data-lucide="mail"></i></span>
+              <span>Get email updates on your items</span>
+            </li>
+          </ul>
+
+          <!-- Progress steps indicator -->
+          <div class="ap-steps">
+            <div class="ap-step active" data-step="1">
+              <span class="ap-step-dot"></span>
+              <span class="ap-step-label">Account Info</span>
+            </div>
+            <div class="ap-step-line"></div>
+            <div class="ap-step" data-step="2">
+              <span class="ap-step-dot"></span>
+              <span class="ap-step-label">University</span>
+            </div>
+            <div class="ap-step-line"></div>
+            <div class="ap-step" data-step="3">
+              <span class="ap-step-dot"></span>
+              <span class="ap-step-label">Done</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Register form -->
+      <div class="auth-form-side">
+        <div class="auth-form-wrap">
+          <div class="auth-form-header">
+            <h1>Create account</h1>
+            <p>Fill in the details below to get started with UniFind.</p>
+          </div>
+
+          <!-- Success message (hidden by default) -->
+          <div
+            class="auth-alert auth-alert-success"
+            id="register-success"
+            role="status"
+            aria-live="polite"
+            hidden
+          >
+            <i data-lucide="check-circle"></i>
+            <span>Account created successfully! Redirecting to login...</span>
+          </div>
+
+          <!-- Error alert -->
+          <div
+            class="auth-alert auth-alert-error"
+            id="register-error"
+            role="alert"
+            aria-live="polite"
+            hidden
+          >
+            <i data-lucide="alert-circle"></i>
+            <span id="register-error-msg">Please fix the errors below.</span>
+          </div>
+
+          <form
+            class="auth-form"
+            id="register-form"
+            novalidate
+            aria-label="Registration form"
+          >
+            <!-- Full Name -->
+            <div class="form-row">
+              <div class="form-group" id="fg-firstname">
+                <label for="firstname" class="form-label">
+                  First Name <abbr title="required" aria-hidden="true">*</abbr>
+                </label>
+                <div class="input-wrap">
+                  <span class="input-icon"><i data-lucide="user"></i></span>
+                  <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    class="form-input"
+                    placeholder="Ahmed"
+                    autocomplete="given-name"
+                    required
+                    aria-describedby="firstname-error"
+                  />
+                </div>
+                <span
+                  class="field-error"
+                  id="firstname-error"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="form-group" id="fg-lastname">
+                <label for="lastname" class="form-label">
+                  Last Name <abbr title="required" aria-hidden="true">*</abbr>
+                </label>
+                <div class="input-wrap">
+                  <span class="input-icon"><i data-lucide="user"></i></span>
+                  <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    class="form-input"
+                    placeholder="Khan"
+                    autocomplete="family-name"
+                    required
+                    aria-describedby="lastname-error"
+                  />
+                </div>
+                <span
+                  class="field-error"
+                  id="lastname-error"
+                  role="alert"
+                  aria-live="polite"
+                ></span>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group" id="fg-reg-email">
+              <label for="reg-email" class="form-label">
+                University Email
+                <abbr title="required" aria-hidden="true">*</abbr>
+              </label>
+              <div class="input-wrap">
+                <span class="input-icon"><i data-lucide="mail"></i></span>
+                <input
+                  type="email"
+                  id="reg-email"
+                  name="email"
+                  class="form-input"
+                  placeholder="yourname@university.edu"
+                  autocomplete="email"
+                  required
+                  aria-describedby="reg-email-error"
+                />
+              </div>
+              <span
+                class="field-error"
+                id="reg-email-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Student ID -->
+            <div class="form-group" id="fg-student-id">
+              <label for="student-id" class="form-label">
+                Student ID <abbr title="required" aria-hidden="true">*</abbr>
+              </label>
+              <div class="input-wrap">
+                <span class="input-icon"><i data-lucide="id-card"></i></span>
+                <input
+                  type="text"
+                  id="student-id"
+                  name="studentId"
+                  class="form-input"
+                  placeholder="e.g. 2024-CS-0042"
+                  required
+                  aria-describedby="student-id-error"
+                />
+              </div>
+              <span
+                class="field-error"
+                id="student-id-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Department -->
+            <div class="form-group" id="fg-department">
+              <label for="department" class="form-label">
+                Department <abbr title="required" aria-hidden="true">*</abbr>
+              </label>
+              <div class="input-wrap input-wrap-select">
+                <span class="input-icon"><i data-lucide="building-2"></i></span>
+                <select
+                  id="department"
+                  name="department"
+                  class="form-input form-select"
+                  required
+                  aria-describedby="department-error"
+                >
+                  <option value="" disabled selected>
+                    Select your department
+                  </option>
+                  <option value="cs">Computer Science</option>
+                  <option value="ee">Electrical Engineering</option>
+                  <option value="me">Mechanical Engineering</option>
+                  <option value="bba">Business Administration</option>
+                  <option value="arts">Arts & Humanities</option>
+                  <option value="med">Medical Sciences</option>
+                  <option value="law">Law</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="select-arrow"
+                  ><i data-lucide="chevron-down"></i
+                ></span>
+              </div>
+              <span
+                class="field-error"
+                id="department-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group" id="fg-phone">
+              <label for="phone" class="form-label">Phone Number</label>
+              <div class="input-wrap">
+                <span class="input-icon"><i data-lucide="phone"></i></span>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="+92 300 0000000"
+                  autocomplete="tel"
+                  aria-describedby="phone-error"
+                />
+              </div>
+              <span class="field-hint"
+                >Optional — used for item recovery contact</span
+              >
+              <span
+                class="field-error"
+                id="phone-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group" id="fg-reg-password">
+              <label for="reg-password" class="form-label">
+                Password <abbr title="required" aria-hidden="true">*</abbr>
+              </label>
+              <div class="input-wrap">
+                <span class="input-icon"><i data-lucide="lock"></i></span>
+                <input
+                  type="password"
+                  id="reg-password"
+                  name="password"
+                  class="form-input"
+                  placeholder="Min. 8 characters"
+                  autocomplete="new-password"
+                  required
+                  aria-describedby="reg-password-error password-strength-desc"
+                />
+                <button
+                  type="button"
+                  class="input-toggle-btn"
+                  id="toggle-reg-password"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+
+              <!-- Password strength meter -->
+              <div
+                class="password-strength"
+                id="password-strength"
+                aria-hidden="true"
+              >
+                <div class="strength-bars">
+                  <span class="strength-bar"></span>
+                  <span class="strength-bar"></span>
+                  <span class="strength-bar"></span>
+                  <span class="strength-bar"></span>
+                </div>
+                <span class="strength-label" id="strength-label"></span>
+              </div>
+              <span
+                class="sr-only"
+                id="password-strength-desc"
+                aria-live="polite"
+              ></span>
+              <span
+                class="field-error"
+                id="reg-password-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group" id="fg-confirm-password">
+              <label for="confirm-password" class="form-label">
+                Confirm Password
+                <abbr title="required" aria-hidden="true">*</abbr>
+              </label>
+              <div class="input-wrap">
+                <span class="input-icon"
+                  ><i data-lucide="lock-keyhole"></i
+                ></span>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirmPassword"
+                  class="form-input"
+                  placeholder="Re-enter your password"
+                  autocomplete="new-password"
+                  required
+                  aria-describedby="confirm-password-error"
+                />
+                <button
+                  type="button"
+                  class="input-toggle-btn"
+                  id="toggle-confirm-password"
+                  aria-label="Toggle confirm password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+              <span
+                class="field-error"
+                id="confirm-password-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Terms -->
+            <div class="form-check" id="fg-terms">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                class="check-input"
+                required
+                aria-describedby="terms-error"
+              />
+              <label for="terms" class="check-label">
+                I agree to the <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a>
+              </label>
+            </div>
+            <span
+              class="field-error"
+              id="terms-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              id="register-btn"
+            >
+              <i data-lucide="user-plus"></i>
+              <span>Create Account</span>
+            </button>
+          </form>
+
+          <p class="auth-switch">
+            Already have an account?
+            <a href="login.html">Sign in instead</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

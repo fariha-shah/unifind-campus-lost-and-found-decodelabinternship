@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="UniFind – Lost & Found System for Universities. Report and recover lost items on campus."
+    />
+    <title>UniFind | Campus Lost & Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <nav class="nav-container" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo" aria-label="UniFind Home">
+          <span class="logo-icon-wrap"><i data-lucide="search-check"></i></span>
+          <span class="logo-text">Uni<strong>Find</strong></span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="#browse" class="nav-link">Browse Items</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="report.html" class="nav-link">Report Item</a></li>
+          <li><a href="dashboard.html" class="nav-link">My Dashboard</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost"
+            ><i data-lucide="log-in"></i> Login</a
+          >
+          <a href="register.html" class="btn btn-primary"
+            ><i data-lucide="user-plus"></i> Register</a
+          >
+        </div>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul role="list">
+          <li><a href="#browse" class="nav-link">Browse Items</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="report.html" class="nav-link">Report Item</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="register.html" class="nav-link">Register</a></li>
+          <li><a href="dashboard.html" class="nav-link">My Dashboard</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg-shapes" aria-hidden="true">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content container">
+          <div class="hero-badge">
+            <i data-lucide="shield-check"></i>
+            <span id="trusted-count">Trusted by students</span>
+          </div>
+          <h1 id="hero-heading" class="hero-title">
+            Lost Something on<br />
+            <em class="hero-highlight">Campus?</em><br />
+            We'll Help You Find It.
+          </h1>
+          <p class="hero-subtitle">
+            UniFind connects students who've lost belongings with those who've
+            found them — fast, secure, and built for your university community.
+          </p>
+          <div class="hero-cta-group">
+            <a href="report.html?type=lost" class="btn btn-primary btn-lg">
+              <i data-lucide="plus-circle"></i> Report Lost Item
+            </a>
+            <a href="#browse" class="btn btn-outline btn-lg">
+              <i data-lucide="search"></i> Browse Found Items
+            </a>
+          </div>
+          <div class="hero-stats" aria-label="Platform statistics">
+            <div class="stat-item">
+              <span class="stat-num">1,240+</span>
+              <span class="stat-label">Items Returned</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-num">320</span>
+              <span class="stat-label">Active Listings</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-num">98%</span>
+              <span class="stat-label">Registered User</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BROWSE -->
+      <section
+        class="browse-section"
+        id="browse"
+        aria-labelledby="browse-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <h2 id="browse-heading" class="section-title">Browse Items</h2>
+            <p class="section-sub">
+              Filter by category, location, or status to find what you're
+              looking for.
+            </p>
+          </div>
+
+          <div class="search-bar-wrap" role="search">
+            <label for="search-input" class="sr-only"
+              >Search lost and found items</label
+            >
+            <div class="search-input-group">
+              <i
+                data-lucide="search"
+                class="search-icon"
+                aria-hidden="true"
+              ></i>
+              <input
+                type="search"
+                id="search-input"
+                class="search-input"
+                placeholder="Search by item name, description..."
+              />
+            </div>
+            <div
+              class="filter-chips"
+              role="group"
+              aria-label="Filter by category"
+            >
+              <button class="chip chip-active" data-filter="all">All</button>
+              <button class="chip" data-filter="electronics">
+                <i data-lucide="laptop"></i> Electronics
+              </button>
+              <button class="chip" data-filter="accessories">
+                <i data-lucide="watch"></i> Accessories
+              </button>
+              <button class="chip" data-filter="bags">
+                <i data-lucide="backpack"></i> Bags
+              </button>
+              <button class="chip" data-filter="documents">
+                <i data-lucide="file-text"></i> Documents
+              </button>
+              <button class="chip" data-filter="keys">
+                <i data-lucide="key-round"></i> Keys
+              </button>
+              <button class="chip" data-filter="other">
+                <i data-lucide="package"></i> Other
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="items-grid"
+            id="items-grid"
+            role="list"
+            aria-label="Lost and found items"
+          >
+            <article
+              class="item-card"
+              role="listitem"
+              data-category="electronics"
+              data-id="1"
+            >
+              <a
+                href="item-detail.html?id=1"
+                class="item-card-img-wrap"
+                aria-label="View details for iPhone 14 Pro"
+              >
+                <div class="item-card-img-placeholder">
+                  <i data-lucide="smartphone"></i>
+                </div>
+                <span class="tag tag-lost item-status-tag">Lost</span>
+              </a>
+              <div class="item-card-body">
+                <div class="item-card-meta">
+                  <span class="item-location"
+                    ><i data-lucide="map-pin"></i> Science Block</span
+                  >
+                  <span class="item-time"
+                    ><i data-lucide="clock"></i> 3h ago</span
+                  >
+                </div>
+                <h3 class="item-card-title">
+                  <a href="item-detail.html?id=1"
+                    >iPhone 14 Pro – Space Black</a
+                  >
+                </h3>
+                <p class="item-card-desc">
+                  Lost near the physics lab corridor. Has a cracked screen
+                  protector.
+                </p>
+                <div class="item-card-footer">
+                  <span class="item-poster"
+                    ><i data-lucide="user-circle"></i> Ahmed K.</span
+                  >
+                  <a
+                    href="item-detail.html?id=1#contact"
+                    class="btn btn-sm btn-primary"
+                    ><i data-lucide="send"></i> Contact</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="item-card"
+              role="listitem"
+              data-category="keys"
+              data-id="2"
+            >
+              <a
+                href="item-detail.html?id=2"
+                class="item-card-img-wrap"
+                aria-label="View details for Silver Key Bundle"
+              >
+                <div class="item-card-img-placeholder">
+                  <i data-lucide="key-round"></i>
+                </div>
+                <span class="tag tag-found item-status-tag">Found</span>
+              </a>
+              <div class="item-card-body">
+                <div class="item-card-meta">
+                  <span class="item-location"
+                    ><i data-lucide="map-pin"></i> Cafeteria</span
+                  >
+                  <span class="item-time"
+                    ><i data-lucide="clock"></i> 30m ago</span
+                  >
+                </div>
+                <h3 class="item-card-title">
+                  <a href="item-detail.html?id=2">Silver Key Bundle (3 keys)</a>
+                </h3>
+                <p class="item-card-desc">
+                  Found on a table near the main entrance of the cafeteria.
+                </p>
+                <div class="item-card-footer">
+                  <span class="item-poster"
+                    ><i data-lucide="user-circle"></i> Sara M.</span
+                  >
+                  <a
+                    href="item-detail.html?id=2#contact"
+                    class="btn btn-sm btn-primary"
+                    ><i data-lucide="send"></i> Contact</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="item-card"
+              role="listitem"
+              data-category="bags"
+              data-id="3"
+            >
+              <a
+                href="item-detail.html?id=3"
+                class="item-card-img-wrap"
+                aria-label="View details for Navy Blue Backpack"
+              >
+                <div class="item-card-img-placeholder">
+                  <i data-lucide="backpack"></i>
+                </div>
+                <span class="tag tag-lost item-status-tag">Lost</span>
+              </a>
+              <div class="item-card-body">
+                <div class="item-card-meta">
+                  <span class="item-location"
+                    ><i data-lucide="map-pin"></i> Main Library</span
+                  >
+                  <span class="item-time"
+                    ><i data-lucide="clock"></i> 1d ago</span
+                  >
+                </div>
+                <h3 class="item-card-title">
+                  <a href="item-detail.html?id=3">Navy Blue Backpack</a>
+                </h3>
+                <p class="item-card-desc">
+                  Contains notebooks and a water bottle. Lost near the study
+                  hall on floor 2.
+                </p>
+                <div class="item-card-footer">
+                  <span class="item-poster"
+                    ><i data-lucide="user-circle"></i> Zara H.</span
+                  >
+                  <a
+                    href="item-detail.html?id=3#contact"
+                    class="btn btn-sm btn-primary"
+                    ><i data-lucide="send"></i> Contact</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="item-card"
+              role="listitem"
+              data-category="accessories"
+              data-id="4"
+            >
+              <a
+                href="item-detail.html?id=4"
+                class="item-card-img-wrap"
+                aria-label="View details for Prescription Glasses"
+              >
+                <div class="item-card-img-placeholder">
+                  <i data-lucide="glasses"></i>
+                </div>
+                <span class="tag tag-found item-status-tag">Found</span>
+              </a>
+              <div class="item-card-body">
+                <div class="item-card-meta">
+                  <span class="item-location"
+                    ><i data-lucide="map-pin"></i> Lecture Hall B</span
+                  >
+                  <span class="item-time"
+                    ><i data-lucide="clock"></i> 5h ago</span
+                  >
+                </div>
+                <h3 class="item-card-title">
+                  <a href="item-detail.html?id=4"
+                    >Prescription Glasses – Brown Frame</a
+                  >
+                </h3>
+                <p class="item-card-desc">
+                  Left on a seat in hall B after the 2pm session. Stored at
+                  reception.
+                </p>
+                <div class="item-card-footer">
+                  <span class="item-poster"
+                    ><i data-lucide="user-circle"></i> Omar T.</span
+                  >
+                  <a
+                    href="item-detail.html?id=4#contact"
+                    class="btn btn-sm btn-primary"
+                    ><i data-lucide="send"></i> Contact</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="item-card"
+              role="listitem"
+              data-category="documents"
+              data-id="5"
+            >
+              <a
+                href="item-detail.html?id=5"
+                class="item-card-img-wrap"
+                aria-label="View details for Student ID Card"
+              >
+                <div class="item-card-img-placeholder">
+                  <i data-lucide="file-text"></i>
+                </div>
+                <span class="tag tag-returned item-status-tag">Returned</span>
+              </a>
+              <div class="item-card-body">
+                <div class="item-card-meta">
+                  <span class="item-location"
+                    ><i data-lucide="map-pin"></i> Admin Block</span
+                  >
+                  <span class="item-time"
+                    ><i data-lucide="clock"></i> 2d ago</span
+                  >
+                </div>
+                <h3 class="item-card-title">
+                  <a href="item-detail.html?id=5">Student ID Card</a>
+                </h3>
+                <p class="item-card-desc">
+                  Found and successfully returned to the owner via the UniFind
+                  system.
+                </p>
+                <div class="item-card-footer">
+                  <span class="item-poster"
+                    ><i data-lucide="user-circle"></i> Lena F.</span
+                  >
+                  <button class="btn btn-sm btn-ghost" disabled>
+                    <i data-lucide="check-circle"></i> Resolved
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="item-card"
+              role="listitem"
+              data-category="electronics"
+              data-id="6"
+            >
+              <a
+                href="item-detail.html?id=6"
+                class="item-card-img-wrap"
+                aria-label="View details for Sony Headphones"
+              >
+                <div class="item-card-img-placeholder">
+                  <i data-lucide="headphones"></i>
+                </div>
+                <span class="tag tag-found item-status-tag">Found</span>
+              </a>
+              <div class="item-card-body">
+                <div class="item-card-meta">
+                  <span class="item-location"
+                    ><i data-lucide="map-pin"></i> Sports Complex</span
+                  >
+                  <span class="item-time"
+                    ><i data-lucide="clock"></i> 6h ago</span
+                  >
+                </div>
+                <h3 class="item-card-title">
+                  <a href="item-detail.html?id=6">Sony WH-1000XM5 Headphones</a>
+                </h3>
+                <p class="item-card-desc">
+                  Black headphones left near the gym entrance. No case included.
+                </p>
+                <div class="item-card-footer">
+                  <span class="item-poster"
+                    ><i data-lucide="user-circle"></i> Bilal R.</span
+                  >
+                  <a
+                    href="item-detail.html?id=6#contact"
+                    class="btn btn-sm btn-primary"
+                    ><i data-lucide="send"></i> Contact</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="browse-load-more">
+            <button class="btn btn-outline">
+              <i data-lucide="loader"></i> Load More Items
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section
+        class="how-it-works"
+        id="how-it-works"
+        aria-labelledby="how-heading"
+      >
+        <div class="container">
+          <div class="section-header">
+            <h2 id="how-heading" class="section-title">How It Works</h2>
+            <p class="section-sub">
+              Three simple steps to reunite you with your belongings.
+            </p>
+          </div>
+          <ol class="steps-list" role="list">
+            <li class="step-item">
+              <div class="step-icon-wrap" aria-hidden="true">
+                <i data-lucide="file-plus-2"></i>
+                <span class="step-num">01</span>
+              </div>
+              <div class="step-content">
+                <h3>Report the Item</h3>
+                <p>
+                  Post a lost or found listing with photos, category, and the
+                  exact campus location. Takes under 2 minutes.
+                </p>
+              </div>
+              <div class="step-connector" aria-hidden="true"></div>
+            </li>
+            <li class="step-item">
+              <div class="step-icon-wrap" aria-hidden="true">
+                <i data-lucide="message-circle"></i>
+                <span class="step-num">02</span>
+              </div>
+              <div class="step-content">
+                <h3>Connect & Verify</h3>
+                <p>
+                  Use our real-time chat to communicate. Submit a claim request
+                  and verify ownership through our secure process.
+                </p>
+              </div>
+              <div class="step-connector" aria-hidden="true"></div>
+            </li>
+            <li class="step-item">
+              <div class="step-icon-wrap" aria-hidden="true">
+                <i data-lucide="package-check"></i>
+                <span class="step-num">03</span>
+              </div>
+              <div class="step-content">
+                <h3>Recover Your Item</h3>
+                <p>
+                  Once verified, coordinate the handoff on campus. The listing
+                  is marked Returned and you receive a confirmation email.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- REPORT CTA -->
+      <section class="report-cta" id="report" aria-labelledby="report-heading">
+        <div class="container">
+          <div class="report-cta-inner">
+            <div class="report-cta-text">
+              <h2 id="report-heading">Found something? Lost something?</h2>
+              <p>
+                Post a listing in minutes and let the UniFind community help.
+              </p>
+            </div>
+            <div class="report-cta-actions">
+              <a href="report.html?type=lost" class="btn btn-primary btn-lg">
+                <i data-lucide="triangle-alert"></i> Report Lost
+              </a>
+              <a href="report.html?type=found" class="btn btn-secondary btn-lg">
+                <i data-lucide="hand-helping"></i> Report Found
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo" aria-label="UniFind Home">
+              <span class="logo-icon-wrap"
+                ><i data-lucide="search-check"></i
+              ></span>
+              <span class="logo-text">Uni<strong>Find</strong></span>
+            </a>
+            <p>Making campus life easier, one recovered item at a time.</p>
+          </div>
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <h4>Platform</h4>
+            <ul role="list">
+              <li><a href="#browse">Browse Items</a></li>
+              <li><a href="report.html">Report Item</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-nav" aria-label="Account navigation">
+            <h4>Account</h4>
+            <ul role="list">
+              <li><a href="register.html">Register</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="dashboard.html">My Dashboard</a></li>
+            </ul>
+          </nav>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <address>
+              <p>
+                <i data-lucide="mail" aria-hidden="true"></i>
+                support@unifind.edu
+              </p>
+              <p>
+                <i data-lucide="map-pin" aria-hidden="true"></i> University
+                Campus
+              </p>
+            </address>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 UniFind. Built by DecodeLabs Interns.</p>
+          <p>
+            <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Use</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

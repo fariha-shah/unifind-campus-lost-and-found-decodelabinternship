@@ -1,0 +1,30 @@
+{
+  "name": "unifind-campus-lost-and-found",
+  "version": "1.0.0",
+  "description": "UniFind — Modern Campus Lost & Found System. A full-stack web application connecting university students to report, search, claim, and recover lost belongings.",
+  "main": "project3/server.js",
+  "scripts": {
+    "start": "node project3/server.js",
+    "dev": "node project3/server.js",
+    "seed": "node project3/seed.js",
+    "backend:install": "cd project3 && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/unifind-campus-lost-and-found"
+  },
+  "keywords": [
+    "unifind",
+    "lost-and-found",
+    "campus-utility",
+    "mern-stack",
+    "full-stack",
+    "express",
+    "mongodb",
+    "vanilla-javascript",
+    "portfolio-project"
+  ],
+  "author": "Fareeha",
+  "license": "MIT"
+}

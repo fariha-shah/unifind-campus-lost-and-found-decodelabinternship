@@ -1,0 +1,28 @@
+### Test Server
+GET http://localhost:4000
+
+### Get All Items
+GET http://localhost:4000/api/items
+
+### Add New Item
+POST http://localhost:4000/api/items
+Content-Type: application/json
+
+{
+  "title": "Blue Water Bottle",
+  "category": "other",
+  "status": "found",
+  "location": "cafeteria",
+  "description": "Found near the vending machine area",
+  "poster": "Test User"
+}
+
+### Register User
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@university.edu",
+  "password": "123456"
+}

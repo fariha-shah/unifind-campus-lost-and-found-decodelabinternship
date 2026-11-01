@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login to UniFind – Campus Lost & Found System"
+    />
+    <title>Login | UniFind</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+      defer
+    ></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" role="banner">
+      <nav class="nav-container" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo" aria-label="UniFind Home">
+          <span class="logo-icon-wrap"><i data-lucide="search-check"></i></span>
+          <span class="logo-text">Uni<strong>Find</strong></span>
+        </a>
+        <div class="nav-actions" style="margin-left: auto">
+          <a href="register.html" class="btn btn-primary">
+            <i data-lucide="user-plus"></i> Create Account
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="auth-main">
+      <!-- Left decorative panel -->
+      <div class="auth-panel" aria-hidden="true">
+        <div class="auth-panel-shapes">
+          <div class="ap-shape ap-shape-1"></div>
+          <div class="ap-shape ap-shape-2"></div>
+          <div class="ap-shape ap-shape-3"></div>
+        </div>
+        <div class="auth-panel-content">
+          <div class="ap-logo-big">
+            <i data-lucide="search-check"></i>
+          </div>
+          <h2>Welcome back to <span>UniFind</span></h2>
+          <p>
+            Your campus community for recovering lost belongings — securely and
+            efficiently.
+          </p>
+
+          <ul class="ap-features" role="list">
+            <li>
+              <span class="ap-feat-icon"
+                ><i data-lucide="shield-check"></i
+              ></span>
+              <span>Secure, verified campus accounts</span>
+            </li>
+            <li>
+              <span class="ap-feat-icon"><i data-lucide="bell"></i></span>
+              <span>Real-time item match alerts</span>
+            </li>
+            <li>
+              <span class="ap-feat-icon"
+                ><i data-lucide="message-circle"></i
+              ></span>
+              <span>Direct chat with finders</span>
+            </li>
+            <li>
+              <span class="ap-feat-icon"
+                ><i data-lucide="package-check"></i
+              ></span>
+              <span>Claim & verify your items</span>
+            </li>
+          </ul>
+
+          <div class="ap-stat-row">
+            <div class="ap-stat">
+              <span class="ap-stat-num" id="login-stat-items">...</span>
+              <span class="ap-stat-label">Active Listings</span>
+            </div>
+            <div class="ap-stat">
+              <span class="ap-stat-num" id="login-stat-users">...</span>
+              <span class="ap-stat-label">Students</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Login form -->
+      <div class="auth-form-side">
+        <div class="auth-form-wrap">
+          <div class="auth-form-header">
+            <h1>Sign in</h1>
+            <p>Enter your university credentials to continue.</p>
+          </div>
+
+          <!-- Alert box (hidden by default, shown on error) -->
+          <div
+            class="auth-alert auth-alert-error"
+            id="login-error"
+            role="alert"
+            aria-live="polite"
+            hidden
+          >
+            <i data-lucide="alert-circle"></i>
+            <span id="login-error-msg">Invalid email or password.</span>
+          </div>
+
+          <form
+            class="auth-form"
+            id="login-form"
+            novalidate
+            aria-label="Login form"
+          >
+            <!-- Email -->
+            <div class="form-group" id="fg-email">
+              <label for="email" class="form-label">
+                University Email
+                <abbr title="required" aria-hidden="true">*</abbr>
+              </label>
+              <div class="input-wrap">
+                <span class="input-icon"><i data-lucide="mail"></i></span>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="yourname@university.edu"
+                  autocomplete="email"
+                  required
+                  aria-describedby="email-error"
+                />
+              </div>
+              <span
+                class="field-error"
+                id="email-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group" id="fg-password">
+              <div class="label-row">
+                <label for="password" class="form-label">
+                  Password
+                  <abbr title="required" aria-hidden="true">*</abbr>
+                </label>
+                <a href="#forgot" class="forgot-link">Forgot password?</a>
+              </div>
+              <div class="input-wrap">
+                <span class="input-icon"><i data-lucide="lock"></i></span>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-input"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                  aria-describedby="password-error"
+                />
+                <button
+                  type="button"
+                  class="input-toggle-btn"
+                  id="toggle-password"
+                  aria-label="Toggle password visibility"
+                >
+                  <i data-lucide="eye"></i>
+                </button>
+              </div>
+              <span
+                class="field-error"
+                id="password-error"
+                role="alert"
+                aria-live="polite"
+              ></span>
+            </div>
+
+            <!-- Remember me -->
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="remember"
+                name="remember"
+                class="check-input"
+              />
+              <label for="remember" class="check-label"
+                >Remember me for 30 days</label
+              >
+            </div>
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              id="login-btn"
+            >
+              <i data-lucide="log-in"></i>
+              <span>Sign In</span>
+            </button>
+
+            <!-- Divider -->
+            <div class="auth-divider" aria-hidden="true">
+              <span>or continue with</span>
+            </div>
+
+            <!-- Social login -->
+            <div class="social-btns">
+              <button
+                type="button"
+                class="btn-social"
+                aria-label="Sign in with Google"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="#4285F4"
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                  />
+                </svg>
+                Google
+              </button>
+              <button
+                type="button"
+                class="btn-social"
+                aria-label="Sign in with Microsoft"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path fill="#F25022" d="M1 1h10v10H1z" />
+                  <path fill="#00A4EF" d="M13 1h10v10H13z" />
+                  <path fill="#7FBA00" d="M1 13h10v10H1z" />
+                  <path fill="#FFB900" d="M13 13h10v10H13z" />
+                </svg>
+                Microsoft
+              </button>
+            </div>
+          </form>
+
+          <p class="auth-switch">
+            Don't have an account?
+            <a href="register.html">Create one for free</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

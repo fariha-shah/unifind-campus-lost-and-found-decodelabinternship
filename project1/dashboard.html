@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dashboard | UniFind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <nav class="nav-container" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon-wrap"><i data-lucide="search-check"></i></span>
+          <span class="logo-text">Uni<strong>Find</strong></span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html#browse" class="nav-link">Browse Items</a></li>
+          <li><a href="report.html" class="nav-link">Report Item</a></li>
+          <li>
+            <a href="dashboard.html" class="nav-link" aria-current="page"
+              >My Dashboard</a
+            >
+          </li>
+        </ul>
+        <div class="nav-actions">
+          <a href="login.html" class="btn btn-ghost"
+            ><i data-lucide="log-in"></i> Login</a
+          >
+          <a href="register.html" class="btn btn-primary"
+            ><i data-lucide="user-plus"></i> Register</a
+          >
+        </div>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul role="list">
+          <li><a href="index.html#browse" class="nav-link">Browse</a></li>
+          <li><a href="report.html" class="nav-link">Report Item</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <div class="breadcrumb-bar">
+        <div class="container">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb" role="list">
+              <li><a href="index.html">Home</a></li>
+              <li aria-hidden="true"><i data-lucide="chevron-right"></i></li>
+              <li aria-current="page">My Dashboard</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <section class="dashboard-page">
+        <div class="container">
+          <!-- User header -->
+          <div class="dash-user-header">
+            <div class="dash-avatar">
+              <i data-lucide="user-circle"></i>
+            </div>
+            <div class="dash-user-info">
+              <h1>Ahmed Khan</h1>
+              <p>
+                ahmed.khan@university.edu &nbsp;·&nbsp; CS Department
+                &nbsp;·&nbsp; ID: 2024-CS-0042
+              </p>
+            </div>
+            <a href="report.html" class="btn btn-primary">
+              <i data-lucide="plus-circle"></i> New Report
+            </a>
+            <button class="btn btn-outline" id="logout-btn">
+              <i data-lucide="log-out"></i> Logout
+            </button>
+          </div>
+
+          <!-- Stats cards -->
+          <div class="dash-stats" role="list" aria-label="Your statistics">
+            <div class="dash-stat-card" role="listitem">
+              <div class="dsc-icon dsc-blue">
+                <i data-lucide="file-text"></i>
+              </div>
+              <div class="dsc-info">
+                <span class="dsc-num" id="stat-total">3</span>
+                <span class="dsc-label">Total Reports</span>
+              </div>
+            </div>
+            <div class="dash-stat-card" role="listitem">
+              <div class="dsc-icon dsc-lost">
+                <i data-lucide="triangle-alert"></i>
+              </div>
+              <div class="dsc-info">
+                <span class="dsc-num" id="stat-lost">2</span>
+                <span class="dsc-label">Lost Items</span>
+              </div>
+            </div>
+            <div class="dash-stat-card" role="listitem">
+              <div class="dsc-icon dsc-found">
+                <i data-lucide="hand-helping"></i>
+              </div>
+              <div class="dsc-info">
+                <span class="dsc-num" id="stat-found">1</span>
+                <span class="dsc-label">Found Items</span>
+              </div>
+            </div>
+            <div class="dash-stat-card" role="listitem">
+              <div class="dsc-icon dsc-returned">
+                <i data-lucide="package-check"></i>
+              </div>
+              <div class="dsc-info">
+                <span class="dsc-num" id="stat-returned">0</span>
+                <span class="dsc-label">Returned</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="dash-tabs" role="tablist" aria-label="Dashboard sections">
+            <button
+              class="dash-tab active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-my-items"
+              id="tab-my-items"
+            >
+              <i data-lucide="list"></i> My Listings
+            </button>
+            <button
+              class="dash-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-claims"
+              id="tab-claims"
+            >
+              <i data-lucide="inbox"></i> Claim Requests
+            </button>
+            <button
+              class="dash-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-history"
+              id="tab-history"
+            >
+              <i data-lucide="history"></i> History
+            </button>
+          </div>
+
+          <!-- Tab: My Listings -->
+          <div
+            id="panel-my-items"
+            role="tabpanel"
+            aria-labelledby="tab-my-items"
+            class="dash-panel"
+          >
+            <div class="dash-panel-actions">
+              <div class="search-input-group" style="max-width: 320px">
+                <i
+                  data-lucide="search"
+                  class="search-icon"
+                  aria-hidden="true"
+                ></i>
+                <input
+                  type="search"
+                  class="search-input"
+                  placeholder="Search your listings..."
+                />
+              </div>
+              <a href="report.html" class="btn btn-outline btn-sm">
+                <i data-lucide="plus"></i> Add New
+              </a>
+            </div>
+
+            <div class="dash-items-list">
+              <div class="dash-item-row">
+                <div class="dir-img-wrap">
+                  <div class="dir-img-ph"><i data-lucide="smartphone"></i></div>
+                </div>
+                <div class="dir-info">
+                  <div class="dir-top">
+                    <span class="tag tag-lost">Lost</span>
+                    <h3>
+                      <a href="item-detail.html?id=1"
+                        >iPhone 14 Pro – Space Black</a
+                      >
+                    </h3>
+                  </div>
+                  <div class="dir-meta">
+                    <span><i data-lucide="map-pin"></i> Science Block</span>
+                    <span><i data-lucide="calendar"></i> June 1, 2026</span>
+                    <span><i data-lucide="eye"></i> 24 views</span>
+                  </div>
+                  <div class="status-track">
+                    <div class="st-step completed">
+                      <i data-lucide="file-plus-2"></i><span>Posted</span>
+                    </div>
+                    <div class="st-line completed"></div>
+                    <div class="st-step active">
+                      <i data-lucide="search"></i><span>Searching</span>
+                    </div>
+                    <div class="st-line"></div>
+                    <div class="st-step">
+                      <i data-lucide="message-circle"></i><span>Contacted</span>
+                    </div>
+                    <div class="st-line"></div>
+                    <div class="st-step">
+                      <i data-lucide="check-circle"></i><span>Returned</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dir-actions">
+                  <a
+                    href="item-detail.html?id=1"
+                    class="btn btn-sm btn-ghost"
+                    title="View"
+                    ><i data-lucide="eye"></i
+                  ></a>
+                  <button
+                    class="btn btn-sm btn-ghost"
+                    title="Edit"
+                    onclick="alert('Edit feature coming in Project 2!')"
+                  >
+                    <i data-lucide="pencil"></i>
+                  </button>
+                  <button
+                    class="btn btn-sm btn-ghost dir-delete"
+                    title="Delete"
+                    onclick="confirmDelete(this)"
+                  >
+                    <i data-lucide="trash-2"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="dash-item-row">
+                <div class="dir-img-wrap">
+                  <div class="dir-img-ph"><i data-lucide="backpack"></i></div>
+                </div>
+                <div class="dir-info">
+                  <div class="dir-top">
+                    <span class="tag tag-lost">Lost</span>
+                    <h3>
+                      <a href="item-detail.html?id=3">Navy Blue Backpack</a>
+                    </h3>
+                  </div>
+                  <div class="dir-meta">
+                    <span><i data-lucide="map-pin"></i> Main Library</span>
+                    <span><i data-lucide="calendar"></i> May 31, 2026</span>
+                    <span><i data-lucide="eye"></i> 11 views</span>
+                  </div>
+                  <div class="status-track">
+                    <div class="st-step completed">
+                      <i data-lucide="file-plus-2"></i><span>Posted</span>
+                    </div>
+                    <div class="st-line completed"></div>
+                    <div class="st-step completed">
+                      <i data-lucide="search"></i><span>Searching</span>
+                    </div>
+                    <div class="st-line completed"></div>
+                    <div class="st-step active">
+                      <i data-lucide="message-circle"></i><span>Contacted</span>
+                    </div>
+                    <div class="st-line"></div>
+                    <div class="st-step">
+                      <i data-lucide="check-circle"></i><span>Returned</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dir-actions">
+                  <a
+                    href="item-detail.html?id=3"
+                    class="btn btn-sm btn-ghost"
+                    title="View"
+                    ><i data-lucide="eye"></i
+                  ></a>
+                  <button
+                    class="btn btn-sm btn-ghost"
+                    title="Edit"
+                    onclick="alert('Edit feature coming in Project 2!')"
+                  >
+                    <i data-lucide="pencil"></i>
+                  </button>
+                  <button
+                    class="btn btn-sm btn-ghost dir-delete"
+                    title="Delete"
+                    onclick="confirmDelete(this)"
+                  >
+                    <i data-lucide="trash-2"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="dash-item-row">
+                <div class="dir-img-wrap">
+                  <div class="dir-img-ph"><i data-lucide="key-round"></i></div>
+                </div>
+                <div class="dir-info">
+                  <div class="dir-top">
+                    <span class="tag tag-found">Found</span>
+                    <h3>
+                      <a href="item-detail.html?id=2">Silver Key Bundle</a>
+                    </h3>
+                  </div>
+                  <div class="dir-meta">
+                    <span><i data-lucide="map-pin"></i> Cafeteria</span>
+                    <span><i data-lucide="calendar"></i> June 1, 2026</span>
+                    <span><i data-lucide="eye"></i> 8 views</span>
+                  </div>
+                  <div class="status-track">
+                    <div class="st-step completed">
+                      <i data-lucide="file-plus-2"></i><span>Posted</span>
+                    </div>
+                    <div class="st-line completed"></div>
+                    <div class="st-step active">
+                      <i data-lucide="search"></i><span>Searching</span>
+                    </div>
+                    <div class="st-line"></div>
+                    <div class="st-step">
+                      <i data-lucide="message-circle"></i><span>Contacted</span>
+                    </div>
+                    <div class="st-line"></div>
+                    <div class="st-step">
+                      <i data-lucide="check-circle"></i><span>Returned</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dir-actions">
+                  <a
+                    href="item-detail.html?id=2"
+                    class="btn btn-sm btn-ghost"
+                    title="View"
+                    ><i data-lucide="eye"></i
+                  ></a>
+                  <button
+                    class="btn btn-sm btn-ghost"
+                    title="Edit"
+                    onclick="alert('Edit feature coming in Project 2!')"
+                  >
+                    <i data-lucide="pencil"></i>
+                  </button>
+                  <button
+                    class="btn btn-sm btn-ghost dir-delete"
+                    title="Delete"
+                    onclick="confirmDelete(this)"
+                  >
+                    <i data-lucide="trash-2"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: Claim Requests -->
+          <div
+            id="panel-claims"
+            role="tabpanel"
+            aria-labelledby="tab-claims"
+            class="dash-panel"
+            hidden
+          >
+            <div class="claims-list">
+              <div class="history-empty">
+                <i data-lucide="inbox"></i>
+                <h3>No claim requests yet</h3>
+                <p>When someone claims your item, it will appear here.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Tab: History -->
+          <div
+            id="panel-history"
+            role="tabpanel"
+            aria-labelledby="tab-history"
+            class="dash-panel"
+            hidden
+          >
+            <div class="history-empty">
+              <i data-lucide="clock"></i>
+              <h3>No completed items yet</h3>
+              <p>Once an item is marked as Returned, it will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Delete Confirm Modal -->
+    <div
+      class="modal-overlay"
+      id="delete-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="delete-modal-title"
+      hidden
+    >
+      <div class="modal-box modal-box-sm">
+        <div class="modal-header">
+          <div class="modal-icon modal-icon-danger">
+            <i data-lucide="trash-2"></i>
+          </div>
+          <h2 id="delete-modal-title">Delete Listing?</h2>
+          <p>
+            This action cannot be undone. The listing will be permanently
+            removed.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-outline" id="cancel-delete">Cancel</button>
+          <button class="btn btn-danger" id="confirm-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop" id="delete-backdrop" hidden></div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-bottom" style="padding-top: 0; border-top: none">
+          <p>&copy; 2026 UniFind. Built by DecodeLabs Interns.</p>
+          <p><a href="index.html">Back to Home</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
